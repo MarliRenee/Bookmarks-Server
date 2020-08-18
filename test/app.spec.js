@@ -4,6 +4,7 @@ describe('App', () => {
   it('GET / responds with 200 containing "Testing out the Bookmarks server!"', () => {
     return supertest(app)
       .get('/')
+      .set('Authorization', `Bearer ${process.env.API_TOKEN}`)
       .expect(200, 'Testing out the Bookmarks server!')
   })
 })

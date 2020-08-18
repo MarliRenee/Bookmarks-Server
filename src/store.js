@@ -16,6 +16,13 @@ const bookmarks = [
         description: 'She said gay rights!',
         rating: 5 
     },
+    {
+        id:  uuid(),
+        title: 'MDN',
+        url: 'https://developer.mozilla.org',
+        description: 'The only place to find web documentation',
+        rating: 5,
+      },
 ]
 
 module.exports = { bookmarks }

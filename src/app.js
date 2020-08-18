@@ -4,7 +4,7 @@ const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
-//const validateBearerToken = require('./validate-bearer-token')
+const validateBearerToken = require('./validate-bearer-token')
 const bookmarksRouter = require('./bookmarks/bookmarks-router')
 
 const app = express()
@@ -14,7 +14,7 @@ app.use(morgan((NODE_ENV === 'production') ? 'tiny' : 'common', {
 }))
 app.use(cors())
 app.use(helmet())
-//app.use(validateBearerToken)
+app.use(validateBearerToken)
 
 app.use(bookmarksRouter)
 

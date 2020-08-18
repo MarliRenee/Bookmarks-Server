@@ -10,15 +10,10 @@ const bodyParser = express.json()
 bookmarksRouter
     .route('/bookmarks')
 
-    // Write a route handler for the endpoint GET /bookmarks 
-    // that returns a list of bookmarks
     .get((req, res) => {
         res.json(store.bookmarks)
     })
 
-    // Write a route handler for POST /bookmarks that accepts 
-    // a JSON object representing a bookmark and adds it to the list 
-    // of bookmarks after validation.
     .post(bodyParser, (req, res) => {
         for (const field of ['title', 'url', 'rating']) {
             if (!req.body[field]) {
@@ -51,9 +46,6 @@ bookmarksRouter
 bookmarksRouter
     .route('/bookmarks/:id')
 
-    // Write a route handler for the endpoint GET /bookmarks/:id 
-    // that returns a single bookmark with the given ID, return 404 Not Found 
-    // if the ID is not valid
     .get((req, res) => {
         const { id } = req.params
 
@@ -68,8 +60,6 @@ bookmarksRouter
 
         res.json(bookmark)
     })
-    // Write a route handler for the endpoint DELETE /bookmarks/:id 
-    // that deletes the bookmark with the given ID.
     .delete((req, res) => {
         const { id } = req.params
 
